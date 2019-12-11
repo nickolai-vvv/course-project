@@ -1,2 +1,2 @@
 # course-project
-converter: Markdown to HTML
+converter: markdown to HTML
