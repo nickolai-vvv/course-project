@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/img/cube-white.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/icons/svg/010-upload.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/icons/svg/044-reload-3.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/icons/svg/068-import-1.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/icons/svg/071-export-1.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/icons/svg/085-download.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/icons/svg/113-link.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/icons/svg/114-delete.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/icons/svg/115-settings.svg" charset="UTF-8" />
+  </component>
+</project>

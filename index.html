@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML & MARKDOWN</title>
+
+    <!-- Готовые библиотеки -->
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="codemirror/theme/yonce.css">
+
+    <!-- Шрифт с Google Fonts и собственные стили -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <header>
+      <nav class="header__nav">
+
+        <div class="header__logo">
+          <a class="header__logo-img" href="index.html"><img src="img/cube-white.svg" height="60" width="60" alt="Логотип приложения"></a>
+          <p>
+            <a href="index.html">converter: html & markdown</a>
+            <br>powered by 8391 <span class="pro">pro</span>
+          </p>
+        </div>
+
+        <ul class="header__ul">
+          <li>
+            <button class="button button-img-view" aria-label="Настройки отображения"></button>
+            <ul class="view__ul">
+              <li><a class="view__ul--1" href="#">Редактор и
+                превью</a></li>
+              <li><a class="view__ul--2" href="#">Только редактор markdown</a></li>
+              <li><a class="view__ul--3 current" href="#">Предпросмотр HTML</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class="button button-img-heart" href="https://vk.com/sirwill" aria-label="Сердечко"></a>
+          </li>
+          <li><a href="#" class="button link-contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="visually-hidden">Сonverter: html & markdown</h1>
+
+      <div class="wrapper" id="app">
+        <section class="box" id="boxMarkdown">
+          <div class="box__heading">
+            <h2>Markdown</h2>
+            <ul class="box__heading-ul">
+              <li>
+                <button class="button button-box" id="btn-export-markdown" title="Экспортировать">
+                  <span>Экспортировать</span>
+                </button>
+              </li>
+              <li>
+                <button class="button button-box" id="btn-import-markdown" title="Импортировать">
+                  <span>Импортировать</span>
+                </button>
+                <!--Ахтунг!
+                    Дизайн input'a займёт слишком много времени.
+                    Было разумно(быстро и без геморроя) поступить так:
+                    (имитируем btn-import-markdown под input) При нажатии на btn срабатывет input.
+                    Реализация в main.js
+                    Сам input доступно скрыт, если что-->
+                <input class="visually-hidden" id="input-file" type="file" accept=".md,.txt"/>
+              </li>
+              <li>
+                <button class="button button-box" id="btn-clean-markdown" title="Очистить">
+                  <span>Очистить</span></button>
+              </li>
+              <li>
+                <button class="button button-box" id="btn-img-markdown" title="Добавить изображение">
+                  <span>Добавить изображение</span></button>
+              </li>
+              <li>
+                <button class="button button-box" id="btn-link-markdown" title="Добавить ссылку">
+                  <span>Добавить ссылку</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <textarea id="codeMarkDown"></textarea>
+        </section>
+
+        <div class="handler" id="handler1"></div>
+
+        <section class="box" id="boxHtml">
+          <div class="box__heading">
+            <h2>HTML</h2>
+
+            <!-- пока под вопросом. возможно стоит добавить <form> -->
+            <ul class="box__heading-ul">
+              <li>
+                <button class="button button-box" id="btn-export-html" title="Экспортировать">
+                  <span>Экспортировать</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <textarea id="codeHtml"></textarea>
+        </section>
+
+        <div class="handler" id="handler2"></div>
+
+        <section class="box box-result" id="boxResult">
+<!--          Временно для демонстрации-->
+          <span id="result"></span>
+<!--          <div class="box__heading">-->
+<!--            <h2>Markdown</h2>-->
+<!--          </div>-->
+        </section>
+      </div>
+    </main>
+
+    <section class="add-link">
+      <div class="add-link__heading">
+        <h2>Ссылка</h2>
+      </div>
+      <div class="add-link__input">
+        <label for="input-link">Адрес: </label>
+        <input class="input-link" type="url" name="input-link" id="input-link">
+      </div>
+      <div class="add-link__buttons">
+        <button class="button" id="add-link-ok">Ок</button>
+        <button class="button" id="add-link-close">Закрыть</button>
+      </div>
+    </section>
+
+    <section class="add-img">
+      <div class="add-img__heading">
+        <h2>Изображение</h2>
+      </div>
+      <div class="add-img__input">
+        <label for="input-img">URL: </label>
+        <input class="input-img" type="url" name="input-img" id="input-img">
+      </div>
+      <div class="add-img__buttons">
+        <button class="button" id="add-img-ok">Ок</button>
+        <button class="button" id="add-img-close">Закрыть</button>
+      </div>
+    </section>
+
+    <section class="contacts">
+      <div class="contacts__heading">
+        <h2>Контакты</h2>
+        <button class="button button-green" id="contacts-close">Закрыть</button>
+      </div>
+
+      <input class="visually-hidden" type="radio" id="page-1" name="toggle" checked>
+      <input class="visually-hidden" type="radio" id="page-2" name="toggle">
+      <ul class="contacts__controls">
+        <li><label class="contacts__controls-item--1" for="page-1">Авторы</label></li>
+        <li><label class="contacts__controls-item--2" for="page-2">Карта</label></li>
+      </ul>
+      <ul class="contacts__content">
+        <li class="contacts__page">
+
+          <ul class="authors-ul">
+            <li class="author">
+              <a href="https://vk.com/nickolai.oreschenko">
+                <div class="author__face"><span class="visually-hidden">Фото Орещенко Николая</span></div>
+              </a>
+              <h3>Орещенко Николай</h3>
+              <ul class="author-achievements">
+                <li>HTML/CSS</li>
+                <li>js</li>
+                <li>Git</li>
+              </ul>
+            </li>
+            <li class="author">
+              <a href="https://vk.com/id78575752">
+                <div class="author__face"><span class="visually-hidden">Фото Петрухиной Марии</span></div>
+              </a>
+              <h3>Петрухина Мария</h3>
+              <ul class="author-achievements">
+                <li>vue.js</li>
+                <li>js</li>
+                <li>Git</li>
+              </ul>
+            </li>
+          </ul>
+
+        </li>
+        <li class="contacts__page">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3993.1718783057513!2d30.31827823684027!3d59.972191627564776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46963158ed74a239%3A0x28586fb609a7e540!2z0KHQsNC90LrRgi3Qn9C10YLQtdGA0LHRg9GA0LPRgdC60LjQuSDQs9C-0YHRg9C00LDRgNGB0YLQstC10L3QvdGL0Lkg0Y3Qu9C10LrRgtGA0L7RgtC10YXQvdC40YfQtdGB0LrQuNC5INGD0L3QuNCy0LXRgNGB0LjRgtC10YIgwqvQm9Ct0KLQmMK7INC40LwuINCSLtCYLtCj0LvRjNGP0L3QvtCy0LA!5e0!3m2!1sru!2sru!4v1572882916928!5m2!1sru!2sru" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        </li>
+      </ul>
+    </section>
+
+      <!-- библиотеки js, необходимые для работы codeMirror (редактор кода) -->
+    <script src="codemirror/lib/codemirror.js"></script>
+    <script src="codemirror/mode/markdown/markdown.js"></script>
+    <script src="codemirror/mode/xml/xml.js"></script>
+
+    <!-- Собсвенные js -->
+    <script src="js/main.js"></script>
+    <script src="js/convertSolution.js"></script>
+  </body>
+</html>
