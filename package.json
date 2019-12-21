@@ -1,0 +1,23 @@
+{
+  "name": "course-project",
+  "version": "1.0.0",
+  "description": "converter: markdown to HTML",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "./node_modules/.bin/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickolaioreschenko/course-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickolaioreschenko/course-project/issues"
+  },
+  "homepage": "https://github.com/nickolaioreschenko/course-project#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}

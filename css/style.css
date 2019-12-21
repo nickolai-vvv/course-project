@@ -285,6 +285,7 @@ header{
   /*flex-grow: 1;*/
 
   width: 33%;
+  height: 100vh;
 
   -webkit-box-sizing: border-box;
 
@@ -298,11 +299,14 @@ header{
 
 .box-result{
   width: 33%;
+  height: 100vh;
   /*flex-grow: 1;*/
   word-break: break-all;.
 
   margin: 0;
   padding: 10px;
+
+  overflow-y: scroll;
 
   font-family: normal, serif;
   font-size: larger;
@@ -310,6 +314,7 @@ header{
   background-color: #ffffff;
   font-weight: normal;
   line-height: normal;
+
 }
 
 .box-result a{

@@ -1,4 +1,32 @@
-// Создание textarea для ввода markdown (готовая библиотека)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: main.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: main.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// Создание textarea для ввода markdown (готовая библиотека)
 var markDownEditor = CodeMirror.fromTextArea(document.getElementById("codeMarkDown"), {
   lineNumbers: true, // Нумеровать каждую строчку.
   matchBrackets: true,
@@ -825,7 +853,7 @@ mode3.addEventListener("click", function (evt) {
       extension = [extension];
     }
 
-    for (var i = 0; i < extension.length; ++i) {
+    for (var i = 0; i &lt; extension.length; ++i) {
       var baseMsg = errMsg + ' sub-extension ' + i + ': ',
           ext = extension[i];
       if (typeof ext !== 'object') {
@@ -851,7 +879,7 @@ mode3.addEventListener("click", function (evt) {
         type = ext.type = 'output';
       }
 
-      if (type !== 'lang' && type !== 'output' && type !== 'listener') {
+      if (type !== 'lang' &amp;&amp; type !== 'output' &amp;&amp; type !== 'listener') {
         ret.valid = false;
         ret.error = baseMsg + 'type ' + type + ' is not recognized. Valid values: "lang/language", "output/html" or "listener"';
         return ret;
@@ -864,7 +892,7 @@ mode3.addEventListener("click", function (evt) {
           return ret;
         }
       } else {
-        if (showdown.helper.isUndefined(ext.filter) && showdown.helper.isUndefined(ext.regex)) {
+        if (showdown.helper.isUndefined(ext.filter) &amp;&amp; showdown.helper.isUndefined(ext.regex)) {
           ret.valid = false;
           ret.error = baseMsg + type + ' extensions must define either a "regex" property or a "filter" method';
           return ret;
@@ -958,7 +986,7 @@ mode3.addEventListener("click", function (evt) {
   showdown.helper.isFunction = function isFunction(a) {
     'use strict';
     var getType = {};
-    return a && getType.toString.call(a) === '[object Function]';
+    return a &amp;&amp; getType.toString.call(a) === '[object Function]';
   };
 
   /**
@@ -972,7 +1000,7 @@ mode3.addEventListener("click", function (evt) {
     if (typeof obj.forEach === 'function') {
       obj.forEach(callback);
     } else {
-      for (var i = 0; i < obj.length; i++) {
+      for (var i = 0; i &lt; obj.length; i++) {
         callback(obj[i], i, obj);
       }
     }
@@ -1083,7 +1111,7 @@ mode3.addEventListener("click", function (evt) {
           }
         }
       }
-    } while (t && (x.lastIndex = s));
+    } while (t &amp;&amp; (x.lastIndex = s));
 
     return pos;
   };
@@ -1091,7 +1119,7 @@ mode3.addEventListener("click", function (evt) {
   /**
    * matchRecursiveRegExp
    *
-   * (c) 2007 Steven Levithan <stevenlevithan.com>
+   * (c) 2007 Steven Levithan &lt;stevenlevithan.com>
    * MIT License
    *
    * Accepts a string to search, a left and right format delimiter
@@ -1105,16 +1133,16 @@ mode3.addEventListener("click", function (evt) {
    * When matching strings whose format delimiters are unbalanced
    * to the left or right, the output is intentionally as a
    * conventional regex library with recursion support would
-   * produce, e.g. "<<x>" and "<x>>" both produce ["x"] when using
-   * "<" and ">" as the delimiters (both strings contain a single,
-   * balanced instance of "<x>").
+   * produce, e.g. "&lt;&lt;x>" and "&lt;x>>" both produce ["x"] when using
+   * "&lt;" and ">" as the delimiters (both strings contain a single,
+   * balanced instance of "&lt;x>").
    *
    * examples:
    * matchRecursiveRegExp("test", "\\(", "\\)")
    * returns: []
-   * matchRecursiveRegExp("<t<<e>><s>>t<>", "<", ">", "g")
-   * returns: ["t<<e>><s>", ""]
-   * matchRecursiveRegExp("<div id=\"x\">test</div>", "<div\\b[^>]*>", "</div>", "gi")
+   * matchRecursiveRegExp("&lt;t&lt;&lt;e>>&lt;s>>t&lt;>", "&lt;", ">", "g")
+   * returns: ["t&lt;&lt;e>>&lt;s>", ""]
+   * matchRecursiveRegExp("&lt;div id=\"x\">test&lt;/div>", "&lt;div\\b[^>]*>", "&lt;/div>", "gi")
    * returns: ["test"]
    */
   showdown.helper.matchRecursiveRegExp = function (str, left, right, flags) {
@@ -1123,7 +1151,7 @@ mode3.addEventListener("click", function (evt) {
     var matchPos = rgxFindMatchPos (str, left, right, flags),
         results = [];
 
-    for (var i = 0; i < matchPos.length; ++i) {
+    for (var i = 0; i &lt; matchPos.length; ++i) {
       results.push([
         str.slice(matchPos[i].wholeMatch.start, matchPos[i].wholeMatch.end),
         str.slice(matchPos[i].match.start, matchPos[i].match.end),
@@ -1162,7 +1190,7 @@ mode3.addEventListener("click", function (evt) {
       if (matchPos[0].wholeMatch.start !== 0) {
         bits.push(str.slice(0, matchPos[0].wholeMatch.start));
       }
-      for (var i = 0; i < lng; ++i) {
+      for (var i = 0; i &lt; lng; ++i) {
         bits.push(
             replacement(
                 str.slice(matchPos[i].wholeMatch.start, matchPos[i].wholeMatch.end),
@@ -1171,11 +1199,11 @@ mode3.addEventListener("click", function (evt) {
                 str.slice(matchPos[i].right.start, matchPos[i].right.end)
             )
         );
-        if (i < lng - 1) {
+        if (i &lt; lng - 1) {
           bits.push(str.slice(matchPos[i].wholeMatch.end, matchPos[i + 1].wholeMatch.start));
         }
       }
-      if (matchPos[lng - 1].wholeMatch.end < str.length) {
+      if (matchPos[lng - 1].wholeMatch.end &lt; str.length) {
         bits.push(str.slice(matchPos[lng - 1].wholeMatch.end));
       }
       finalStr = bits.join('');
@@ -1320,7 +1348,7 @@ mode3.addEventListener("click", function (evt) {
         throw Error(validExt.error);
       }
 
-      for (var i = 0; i < ext.length; ++i) {
+      for (var i = 0; i &lt; ext.length; ++i) {
         switch (ext[i].type) {
 
           case 'lang':
@@ -1360,7 +1388,7 @@ mode3.addEventListener("click", function (evt) {
         throw Error(valid.error);
       }
 
-      for (var i = 0; i < ext.length; ++i) {
+      for (var i = 0; i &lt; ext.length; ++i) {
         switch (ext[i].type) {
           case 'lang':
             langExtensions.push(ext[i]);
@@ -1411,9 +1439,9 @@ mode3.addEventListener("click", function (evt) {
      */
     this._dispatch = function dispatch (evtName, text, options, globals) {
       if (listeners.hasOwnProperty(evtName)) {
-        for (var ei = 0; ei < listeners[evtName].length; ++ei) {
+        for (var ei = 0; ei &lt; listeners[evtName].length; ++ei) {
           var nText = listeners[evtName][ei](evtName, text, this, options, globals);
-          if (nText && typeof nText !== 'undefined') {
+          if (nText &amp;&amp; typeof nText !== 'undefined') {
             text = nText;
           }
         }
@@ -1585,14 +1613,14 @@ mode3.addEventListener("click", function (evt) {
       if (!showdown.helper.isArray(extension)) {
         extension = [extension];
       }
-      for (var a = 0; a < extension.length; ++a) {
+      for (var a = 0; a &lt; extension.length; ++a) {
         var ext = extension[a];
-        for (var i = 0; i < langExtensions.length; ++i) {
+        for (var i = 0; i &lt; langExtensions.length; ++i) {
           if (langExtensions[i] === ext) {
             langExtensions[i].splice(i, 1);
           }
         }
-        for (var ii = 0; ii < outputModifiers.length; ++i) {
+        for (var ii = 0; ii &lt; outputModifiers.length; ++i) {
           if (outputModifiers[ii] === ext) {
             outputModifiers[ii].splice(i, 1);
           }
@@ -1613,7 +1641,7 @@ mode3.addEventListener("click", function (evt) {
   };
 
   /**
-   * Turn Markdown link shortcuts into XHTML <a> tags.
+   * Turn Markdown link shortcuts into XHTML &lt;a> tags.
    */
   showdown.subParser('anchors', function (text, options, globals) {
     'use strict';
@@ -1653,15 +1681,15 @@ mode3.addEventListener("click", function (evt) {
       }
 
       url = showdown.helper.escapeCharacters(url, '*_', false);
-      var result = '<a href="' + url + '"';
+      var result = '&lt;a href="' + url + '"';
 
-      if (title !== '' && title !== null) {
-        title = title.replace(/"/g, '&quot;');
+      if (title !== '' &amp;&amp; title !== null) {
+        title = title.replace(/"/g, '&amp;quot;');
         title = showdown.helper.escapeCharacters(title, '*_', false);
         result += ' title="' + title + '"';
       }
 
-      result += '>' + linkText + '</a>';
+      result += '>' + linkText + '&lt;/a>';
 
       return result;
     };
@@ -1710,7 +1738,7 @@ mode3.addEventListener("click", function (evt) {
      \(						// literal paren
      [ \t]*
      ()						// no id, so leave $3 empty
-     <?(.*?)>?				// href = $4
+     &lt;?(.*?)>?				// href = $4
      [ \t]*
      (						// $5
      (['"])				// quote char = $6
@@ -1722,7 +1750,7 @@ mode3.addEventListener("click", function (evt) {
      )
      /g,writeAnchorTag);
      */
-    text = text.replace(/(\[((?:\[[^\]]*]|[^\[\]])*)]\([ \t]*()<?(.*?(?:\(.*?\).*?)?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/g,
+    text = text.replace(/(\[((?:\[[^\]]*]|[^\[\]])*)]\([ \t]*()&lt;?(.*?(?:\(.*?\).*?)?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/g,
         writeAnchorTag);
 
     //
@@ -1751,18 +1779,18 @@ mode3.addEventListener("click", function (evt) {
 
     text = globals.converter._dispatch('autoLinks.before', text, options, globals);
 
-    var simpleURLRegex  = /\b(((https?|ftp|dict):\/\/|www\.)[^'">\s]+\.[^'">\s]+)(?=\s|$)(?!["<>])/gi,
-        delimUrlRegex   = /<(((https?|ftp|dict):\/\/|www\.)[^'">\s]+)>/gi,
-        simpleMailRegex = /(?:^|[ \n\t])([A-Za-z0-9!#$%&'*+-/=?^_`\{|}~\.]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)(?:$|[ \n\t])/gi,
-        delimMailRegex  = /<(?:mailto:)?([-.\w]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)>/gi;
+    var simpleURLRegex  = /\b(((https?|ftp|dict):\/\/|www\.)[^'">\s]+\.[^'">\s]+)(?=\s|$)(?!["&lt;>])/gi,
+        delimUrlRegex   = /&lt;(((https?|ftp|dict):\/\/|www\.)[^'">\s]+)>/gi,
+        simpleMailRegex = /(?:^|[ \n\t])([A-Za-z0-9!#$%&amp;'*+-/=?^_`\{|}~\.]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)(?:$|[ \n\t])/gi,
+        delimMailRegex  = /&lt;(?:mailto:)?([-.\w]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)>/gi;
 
-    text = text.replace(delimUrlRegex, '<a href=\"$1\">$1</a>');
+    text = text.replace(delimUrlRegex, '&lt;a href=\"$1\">$1&lt;/a>');
     text = text.replace(delimMailRegex, replaceMail);
-    //simpleURLRegex  = /\b(((https?|ftp|dict):\/\/|www\.)[-.+~:?#@!$&'()*,;=[\]\w]+)\b/gi,
-    // Email addresses: <address@domain.foo>
+    //simpleURLRegex  = /\b(((https?|ftp|dict):\/\/|www\.)[-.+~:?#@!$&amp;'()*,;=[\]\w]+)\b/gi,
+    // Email addresses: &lt;address@domain.foo>
 
     if (options.simplifiedAutoLink) {
-      text = text.replace(simpleURLRegex, '<a href=\"$1\">$1</a>');
+      text = text.replace(simpleURLRegex, '&lt;a href=\"$1\">$1&lt;/a>');
       text = text.replace(simpleMailRegex, replaceMail);
     }
 
@@ -1791,7 +1819,7 @@ mode3.addEventListener("click", function (evt) {
     text = showdown.subParser('headers')(text, options, globals);
 
     // Do Horizontal Rules:
-    var key = showdown.subParser('hashBlock')('<hr />', options, globals);
+    var key = showdown.subParser('hashBlock')('&lt;hr />', options, globals);
     text = text.replace(/^[ ]{0,2}([ ]?\*[ ]?){3,}[ \t]*$/gm, key);
     text = text.replace(/^[ ]{0,2}([ ]?\-[ ]?){3,}[ \t]*$/gm, key);
     text = text.replace(/^[ ]{0,2}([ ]?_[ ]?){3,}[ \t]*$/gm, key);
@@ -1803,7 +1831,7 @@ mode3.addEventListener("click", function (evt) {
     // We already ran _HashHTMLBlocks() before, in Markdown(), but that
     // was to escape raw HTML in the original Markdown source. This time,
     // we're escaping the markup we've just created, so that we don't wrap
-    // <p> tags around block-level tags.
+    // &lt;p> tags around block-level tags.
     text = showdown.subParser('hashHTMLBlocks')(text, options, globals);
     text = showdown.subParser('paragraphs')(text, options, globals);
 
@@ -1844,8 +1872,8 @@ mode3.addEventListener("click", function (evt) {
       bq = showdown.subParser('blockGamut')(bq, options, globals); // recurse
 
       bq = bq.replace(/(^|\n)/g, '$1  ');
-      // These leading spaces screw with <pre> content, so we need to fix that:
-      bq = bq.replace(/(\s*<pre>[^\r]+?<\/pre>)/gm, function (wholeMatch, m1) {
+      // These leading spaces screw with &lt;pre> content, so we need to fix that:
+      bq = bq.replace(/(\s*&lt;pre>[^\r]+?&lt;\/pre>)/gm, function (wholeMatch, m1) {
         var pre = m1;
         // attacklab: hack around Konqueror 3.5.4 bug:
         pre = pre.replace(/^  /mg, '~0');
@@ -1853,7 +1881,7 @@ mode3.addEventListener("click", function (evt) {
         return pre;
       });
 
-      return showdown.subParser('hashBlock')('<blockquote>\n' + bq + '\n</blockquote>', options, globals);
+      return showdown.subParser('hashBlock')('&lt;blockquote>\n' + bq + '\n&lt;/blockquote>', options, globals);
     });
 
     text = globals.converter._dispatch('blockQuotes.after', text, options, globals);
@@ -1861,7 +1889,7 @@ mode3.addEventListener("click", function (evt) {
   });
 
   /**
-   * Process Markdown `<pre><code>` blocks.
+   * Process Markdown `&lt;pre>&lt;code>` blocks.
    */
   showdown.subParser('codeBlocks', function (text, options, globals) {
     'use strict';
@@ -1899,7 +1927,7 @@ mode3.addEventListener("click", function (evt) {
         end = '';
       }
 
-      codeblock = '<pre><code>' + codeblock + end + '</code></pre>';
+      codeblock = '&lt;pre>&lt;code>' + codeblock + end + '&lt;/code>&lt;/pre>';
 
       return showdown.subParser('hashBlock')(codeblock, options, globals) + nextChar;
     });
@@ -1913,7 +1941,7 @@ mode3.addEventListener("click", function (evt) {
 
   /**
    *
-   *   *  Backtick quotes are used for <code></code> spans.
+   *   *  Backtick quotes are used for &lt;code>&lt;/code> spans.
    *
    *   *  You can use multiple backticks as the delimiters if you want to
    *     include literal backticks in the code span. So, this input:
@@ -1922,7 +1950,7 @@ mode3.addEventListener("click", function (evt) {
    *
    *       Will translate to:
    *
-   *         <p>Just type <code>foo `bar` baz</code> at the prompt.</p>
+   *         &lt;p>Just type &lt;code>foo `bar` baz&lt;/code> at the prompt.&lt;/p>
    *
    *    There's no arbitrary limit to the number of backticks you
    *    can use as delimters. If you need three consecutive backticks
@@ -1934,7 +1962,7 @@ mode3.addEventListener("click", function (evt) {
    *
    *       Turns to:
    *
-   *         ... type <code>`bar`</code> ...
+   *         ... type &lt;code>`bar`&lt;/code> ...
    */
   showdown.subParser('codeSpans', function (text, options, globals) {
     'use strict';
@@ -1963,7 +1991,7 @@ mode3.addEventListener("click", function (evt) {
           c = c.replace(/^([ \t]*)/g, '');	// leading whitespace
           c = c.replace(/[ \t]*$/g, '');	// trailing whitespace
           c = showdown.subParser('encodeCode')(c);
-          return m1 + '<code>' + c + '</code>';
+          return m1 + '&lt;code>' + c + '&lt;/code>';
         }
     );
 
@@ -1989,7 +2017,7 @@ mode3.addEventListener("click", function (evt) {
           numSpaces = 4 - leadingText.length % 4;  // g_tab_width
 
       // there *must* be a better way to do this:
-      for (var i = 0; i < numSpaces; i++) {
+      for (var i = 0; i &lt; numSpaces; i++) {
         leadingText += ' ';
       }
 
@@ -2011,10 +2039,10 @@ mode3.addEventListener("click", function (evt) {
     'use strict';
     // Ampersand-encoding based entirely on Nat Irons's Amputator MT plugin:
     // http://bumppo.net/projects/amputator/
-    text = text.replace(/&(?!#?[xX]?(?:[0-9a-fA-F]+|\w+);)/g, '&amp;');
+    text = text.replace(/&amp;(?!#?[xX]?(?:[0-9a-fA-F]+|\w+);)/g, '&amp;amp;');
 
-    // Encode naked <'s
-    text = text.replace(/<(?![a-z\/?\$!])/gi, '&lt;');
+    // Encode naked &lt;'s
+    text = text.replace(/&lt;(?![a-z\/?\$!])/gi, '&amp;lt;');
 
     return text;
   });
@@ -2047,11 +2075,11 @@ mode3.addEventListener("click", function (evt) {
 
     // Encode all ampersands; HTML entities are not
     // entities within a Markdown code span.
-    text = text.replace(/&/g, '&amp;');
+    text = text.replace(/&amp;/g, '&amp;amp;');
 
     // Do the angle bracket song and dance:
-    text = text.replace(/</g, '&lt;');
-    text = text.replace(/>/g, '&gt;');
+    text = text.replace(/&lt;/g, '&amp;lt;');
+    text = text.replace(/>/g, '&amp;gt;');
 
     // Now, escape characters that are magic in Markdown:
     text = showdown.helper.escapeCharacters(text, '*_{}[]\\', false);
@@ -2073,12 +2101,12 @@ mode3.addEventListener("click", function (evt) {
    *    of the address encoded as either a decimal or hex entity, in
    *    the hopes of foiling most address harvesting spam bots. E.g.:
    *
-   *    <a href="&#x6D;&#97;&#105;&#108;&#x74;&#111;:&#102;&#111;&#111;&#64;&#101;
-   *       x&#x61;&#109;&#x70;&#108;&#x65;&#x2E;&#99;&#111;&#109;">&#102;&#111;&#111;
-   *       &#64;&#101;x&#x61;&#109;&#x70;&#108;&#x65;&#x2E;&#99;&#111;&#109;</a>
+   *    &lt;a href="&amp;#x6D;&amp;#97;&amp;#105;&amp;#108;&amp;#x74;&amp;#111;:&amp;#102;&amp;#111;&amp;#111;&amp;#64;&amp;#101;
+   *       x&amp;#x61;&amp;#109;&amp;#x70;&amp;#108;&amp;#x65;&amp;#x2E;&amp;#99;&amp;#111;&amp;#109;">&amp;#102;&amp;#111;&amp;#111;
+   *       &amp;#64;&amp;#101;x&amp;#x61;&amp;#109;&amp;#x70;&amp;#108;&amp;#x65;&amp;#x2E;&amp;#99;&amp;#111;&amp;#109;&lt;/a>
    *
    *  Based on a filter by Matthew Wickline, posted to the BBEdit-Talk
-   *  mailing list: <http://tinyurl.com/yu7ue>
+   *  mailing list: &lt;http://tinyurl.com/yu7ue>
    *
    */
   showdown.subParser('encodeEmailAddress', function (addr) {
@@ -2086,10 +2114,10 @@ mode3.addEventListener("click", function (evt) {
 
     var encode = [
       function (ch) {
-        return '&#' + ch.charCodeAt(0) + ';';
+        return '&amp;#' + ch.charCodeAt(0) + ';';
       },
       function (ch) {
-        return '&#x' + ch.charCodeAt(0).toString(16) + ';';
+        return '&amp;#x' + ch.charCodeAt(0).toString(16) + ';';
       },
       function (ch) {
         return ch;
@@ -2113,14 +2141,14 @@ mode3.addEventListener("click", function (evt) {
       return ch;
     });
 
-    addr = '<a href="' + addr + '">' + addr + '</a>';
+    addr = '&lt;a href="' + addr + '">' + addr + '&lt;/a>';
     addr = addr.replace(/">.+:/g, '">'); // strip the mailto: from the visible part
 
     return addr;
   });
 
   /**
-   * Within tags -- meaning between < and > -- encode [\ ` * _] so they
+   * Within tags -- meaning between &lt; and > -- encode [\ ` * _] so they
    * don't conflict with their use in Markdown for code, italics and strong.
    */
   showdown.subParser('escapeSpecialCharsWithinTagAttributes', function (text) {
@@ -2128,10 +2156,10 @@ mode3.addEventListener("click", function (evt) {
 
     // Build a regex to find HTML tags and comments.  See Friedl's
     // "Mastering Regular Expressions", 2nd Ed., pp. 200-201.
-    var regex = /(<[a-z\/!$]("[^"]*"|'[^']*'|[^'">])*>|<!(--.*?--\s*)+>)/gi;
+    var regex = /(&lt;[a-z\/!$]("[^"]*"|'[^']*'|[^'">])*>|&lt;!(--.*?--\s*)+>)/gi;
 
     text = text.replace(regex, function (wholeMatch) {
-      var tag = wholeMatch.replace(/(.)<\/?code>(?=.)/g, '$1`');
+      var tag = wholeMatch.replace(/(.)&lt;\/?code>(?=.)/g, '$1`');
       tag = showdown.helper.escapeCharacters(tag, '\\`*_', false);
       return tag;
     });
@@ -2170,7 +2198,7 @@ mode3.addEventListener("click", function (evt) {
       codeblock = codeblock.replace(/^\n+/g, ''); // trim leading newlines
       codeblock = codeblock.replace(/\n+$/g, ''); // trim trailing whitespace
 
-      codeblock = '<pre><code' + (language ? ' class="' + language + ' language-' + language + '"' : '') + '>' + codeblock + end + '</code></pre>';
+      codeblock = '&lt;pre>&lt;code' + (language ? ' class="' + language + ' language-' + language + '"' : '') + '>' + codeblock + end + '&lt;/code>&lt;/pre>';
 
       codeblock = showdown.subParser('hashBlock')(codeblock, options, globals);
 
@@ -2261,20 +2289,20 @@ mode3.addEventListener("click", function (evt) {
           return '\n\n~K' + (globals.gHtmlBlocks.push(txt) - 1) + 'K\n\n';
         };
 
-    for (var i = 0; i < blockTags.length; ++i) {
-      text = showdown.helper.replaceRecursiveRegExp(text, repFunc, '^(?: |\\t){0,3}<' + blockTags[i] + '\\b[^>]*>', '</' + blockTags[i] + '>', 'gim');
+    for (var i = 0; i &lt; blockTags.length; ++i) {
+      text = showdown.helper.replaceRecursiveRegExp(text, repFunc, '^(?: |\\t){0,3}&lt;' + blockTags[i] + '\\b[^>]*>', '&lt;/' + blockTags[i] + '>', 'gim');
     }
 
     // HR SPECIAL CASE
-    text = text.replace(/(\n[ ]{0,3}(<(hr)\b([^<>])*?\/?>)[ \t]*(?=\n{2,}))/g,
+    text = text.replace(/(\n[ ]{0,3}(&lt;(hr)\b([^&lt;>])*?\/?>)[ \t]*(?=\n{2,}))/g,
         showdown.subParser('hashElement')(text, options, globals));
 
     // Special case for standalone HTML comments:
-    text = text.replace(/(<!(--[^\r]*?--\s*)+>[ \t]*(?=\n{2,}))/g,
+    text = text.replace(/(&lt;!(--[^\r]*?--\s*)+>[ \t]*(?=\n{2,}))/g,
         showdown.subParser('hashElement')(text, options, globals));
 
-    // PHP and ASP-style processor instructions (<?...?> and <%...%>)
-    text = text.replace(/(?:\n\n)([ ]{0,3}(?:<([?%])[^\r]*?\2>)[ \t]*(?=\n{2,}))/g,
+    // PHP and ASP-style processor instructions (&lt;?...?> and &lt;%...%>)
+    text = text.replace(/(?:\n\n)([ ]{0,3}(?:&lt;([?%])[^\r]*?\2>)[ \t]*(?=\n{2,}))/g,
         showdown.subParser('hashElement')(text, options, globals));
 
     return text;
@@ -2286,9 +2314,9 @@ mode3.addEventListener("click", function (evt) {
   showdown.subParser('hashHTMLSpans', function (text, config, globals) {
     'use strict';
 
-    var matches = showdown.helper.matchRecursiveRegExp(text, '<code\\b[^>]*>', '</code>', 'gi');
+    var matches = showdown.helper.matchRecursiveRegExp(text, '&lt;code\\b[^>]*>', '&lt;/code>', 'gi');
 
-    for (var i = 0; i < matches.length; ++i) {
+    for (var i = 0; i &lt; matches.length; ++i) {
       text = text.replace(matches[i][0], '~L' + (globals.gHtmlSpans.push(matches[i][0]) - 1) + 'L');
     }
     return text;
@@ -2300,7 +2328,7 @@ mode3.addEventListener("click", function (evt) {
   showdown.subParser('unhashHTMLSpans', function (text, config, globals) {
     'use strict';
 
-    for (var i = 0; i < globals.gHtmlSpans.length; ++i) {
+    for (var i = 0; i &lt; globals.gHtmlSpans.length; ++i) {
       text = text.replace('~L' + i + 'L', globals.gHtmlSpans[i]);
     }
 
@@ -2319,7 +2347,7 @@ mode3.addEventListener("click", function (evt) {
       return '\n\n~G' + (globals.ghCodeBlocks.push({text: wholeMatch, codeblock: codeblock}) - 1) + 'G\n\n';
     };
 
-    text = showdown.helper.replaceRecursiveRegExp(text, repFunc, '^(?: |\\t){0,3}<pre\\b[^>]*>\\s*<code\\b[^>]*>', '^(?: |\\t){0,3}</code>\\s*</pre>', 'gim');
+    text = showdown.helper.replaceRecursiveRegExp(text, repFunc, '^(?: |\\t){0,3}&lt;pre\\b[^>]*>\\s*&lt;code\\b[^>]*>', '^(?: |\\t){0,3}&lt;/code>\\s*&lt;/pre>', 'gim');
     return text;
   });
 
@@ -2346,7 +2374,7 @@ mode3.addEventListener("click", function (evt) {
       var spanGamut = showdown.subParser('spanGamut')(m1, options, globals),
           hID = (options.noHeaderId) ? '' : ' id="' + headerId(m1) + '"',
           hLevel = headerLevelStart,
-          hashBlock = '<h' + hLevel + hID + '>' + spanGamut + '</h' + hLevel + '>';
+          hashBlock = '&lt;h' + hLevel + hID + '>' + spanGamut + '&lt;/h' + hLevel + '>';
       return showdown.subParser('hashBlock')(hashBlock, options, globals);
     });
 
@@ -2354,7 +2382,7 @@ mode3.addEventListener("click", function (evt) {
       var spanGamut = showdown.subParser('spanGamut')(m1, options, globals),
           hID = (options.noHeaderId) ? '' : ' id="' + headerId(m1) + '"',
           hLevel = headerLevelStart + 1,
-          hashBlock = '<h' + hLevel + hID + '>' + spanGamut + '</h' + hLevel + '>';
+          hashBlock = '&lt;h' + hLevel + hID + '>' + spanGamut + '&lt;/h' + hLevel + '>';
       return showdown.subParser('hashBlock')(hashBlock, options, globals);
     });
 
@@ -2369,8 +2397,8 @@ mode3.addEventListener("click", function (evt) {
       var span = showdown.subParser('spanGamut')(m2, options, globals),
           hID = (options.noHeaderId) ? '' : ' id="' + headerId(m2) + '"',
           hLevel = headerLevelStart - 1 + m1.length,
-          // header = '<h' + hLevel + hID + '>' + span + '</h' + hLevel + '>';
-          header = '<h' + hLevel + '>' + span + '</h' + hLevel + '>';
+          // header = '&lt;h' + hLevel + hID + '>' + span + '&lt;/h' + hLevel + '>';
+          header = '&lt;h' + hLevel + '>' + span + '&lt;/h' + hLevel + '>';
 
       return showdown.subParser('hashBlock')(header, options, globals);
     });
@@ -2401,14 +2429,14 @@ mode3.addEventListener("click", function (evt) {
   });
 
   /**
-   * Turn Markdown image shortcuts into <img> tags.
+   * Turn Markdown image shortcuts into &lt;img> tags.
    */
   showdown.subParser('images', function (text, options, globals) {
     'use strict';
 
     text = globals.converter._dispatch('images.before', text, options, globals);
 
-    var inlineRegExp    = /!\[(.*?)]\s?\([ \t]*()<?(\S+?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*(?:(['"])(.*?)\6[ \t]*)?\)/g,
+    var inlineRegExp    = /!\[(.*?)]\s?\([ \t]*()&lt;?(\S+?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*(?:(['"])(.*?)\6[ \t]*)?\)/g,
         referenceRegExp = /!\[([^\]]*?)] ?(?:\n *)?\[(.*?)]()()()()()/g;
 
     function writeImageTag (wholeMatch, altText, linkId, url, width, height, m5, title) {
@@ -2444,18 +2472,18 @@ mode3.addEventListener("click", function (evt) {
         }
       }
 
-      altText = altText.replace(/"/g, '&quot;');
+      altText = altText.replace(/"/g, '&amp;quot;');
       altText = showdown.helper.escapeCharacters(altText, '*_', false);
       url = showdown.helper.escapeCharacters(url, '*_', false);
-      var result = '<img src="' + url + '" alt="' + altText + '"';
+      var result = '&lt;img src="' + url + '" alt="' + altText + '"';
 
       if (title) {
-        title = title.replace(/"/g, '&quot;');
+        title = title.replace(/"/g, '&amp;quot;');
         title = showdown.helper.escapeCharacters(title, '*_', false);
         result += ' title="' + title + '"';
       }
 
-      if (width && height) {
+      if (width &amp;&amp; height) {
         width  = (width === '*') ? 'auto' : width;
         height = (height === '*') ? 'auto' : height;
 
@@ -2471,7 +2499,7 @@ mode3.addEventListener("click", function (evt) {
     // First, handle reference-style labeled images: ![alt text][id]
     text = text.replace(referenceRegExp, writeImageTag);
 
-    // Next, handle inline images:  ![alt text](url =<width>x<height> "optional title")
+    // Next, handle inline images:  ![alt text](url =&lt;width>x&lt;height> "optional title")
     text = text.replace(inlineRegExp, writeImageTag);
 
     text = globals.converter._dispatch('images.after', text, options, globals);
@@ -2486,16 +2514,16 @@ mode3.addEventListener("click", function (evt) {
     if (options.literalMidWordUnderscores) {
       //underscores
       // Since we are consuming a \s character, we need to add it
-      text = text.replace(/(^|\s|>|\b)__(?=\S)([^]+?)__(?=\b|<|\s|$)/gm, '$1<strong>$2</strong>');
-      text = text.replace(/(^|\s|>|\b)_(?=\S)([^]+?)_(?=\b|<|\s|$)/gm, '$1<em>$2</em>');
+      text = text.replace(/(^|\s|>|\b)__(?=\S)([^]+?)__(?=\b|&lt;|\s|$)/gm, '$1&lt;strong>$2&lt;/strong>');
+      text = text.replace(/(^|\s|>|\b)_(?=\S)([^]+?)_(?=\b|&lt;|\s|$)/gm, '$1&lt;em>$2&lt;/em>');
       //asterisks
-      text = text.replace(/(\*\*)(?=\S)([^\r]*?\S[*]*)\1/g, '<strong>$2</strong>');
-      text = text.replace(/(\*)(?=\S)([^\r]*?\S)\1/g, '<em>$2</em>');
+      text = text.replace(/(\*\*)(?=\S)([^\r]*?\S[*]*)\1/g, '&lt;strong>$2&lt;/strong>');
+      text = text.replace(/(\*)(?=\S)([^\r]*?\S)\1/g, '&lt;em>$2&lt;/em>');
 
     } else {
-      // <strong> must go first:
-      text = text.replace(/(\*\*|__)(?=\S)([^\r]*?\S[*_]*)\1/g, '<strong>$2</strong>');
-      text = text.replace(/(\*|_)(?=\S)([^\r]*?\S)\1/g, '<em>$2</em>');
+      // &lt;strong> must go first:
+      text = text.replace(/(\*\*|__)(?=\S)([^\r]*?\S[*_]*)\1/g, '&lt;strong>$2&lt;/strong>');
+      text = text.replace(/(\*|_)(?=\S)([^\r]*?\S)\1/g, '&lt;em>$2&lt;/em>');
     }
 
     text = globals.converter._dispatch('italicsAndBold.after', text, options, globals);
@@ -2549,15 +2577,15 @@ mode3.addEventListener("click", function (evt) {
           isParagraphed = (/\n[ \t]*\n(?!~0)/.test(listStr));
 
       listStr = listStr.replace(rgx, function (wholeMatch, m1, m2, m3, m4, taskbtn, checked) {
-        checked = (checked && checked.trim() !== '');
+        checked = (checked &amp;&amp; checked.trim() !== '');
         var item = showdown.subParser('outdent')(m4, options, globals),
             bulletStyle = '';
 
         // Support for github tasklists
-        if (taskbtn && options.tasklists) {
+        if (taskbtn &amp;&amp; options.tasklists) {
           bulletStyle = ' class="task-list-item" style="list-style-type: none;"';
           item = item.replace(/^[ \t]*\[(x|X| )?]/m, function () {
-            var otp = '<input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;"';
+            var otp = '&lt;input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;"';
             if (checked) {
               otp += ' checked';
             }
@@ -2581,7 +2609,7 @@ mode3.addEventListener("click", function (evt) {
             item = showdown.subParser('spanGamut')(item, options, globals);
           }
         }
-        item =  '\n<li' + bulletStyle + '>' + item + '</li>\n';
+        item =  '\n&lt;li' + bulletStyle + '>' + item + '&lt;/li>\n';
         return item;
       });
 
@@ -2616,7 +2644,7 @@ mode3.addEventListener("click", function (evt) {
           var pos = txt.search(counterRxg);
           if (pos !== -1) {
             // slice
-            result += '\n\n<' + listType + '>' + processListItems(txt.slice(0, pos), !!trimTrailing) + '</' + listType + '>\n\n';
+            result += '\n\n&lt;' + listType + '>' + processListItems(txt.slice(0, pos), !!trimTrailing) + '&lt;/' + listType + '>\n\n';
 
             // invert counterType and listType
             listType = (listType === 'ul') ? 'ol' : 'ul';
@@ -2625,14 +2653,14 @@ mode3.addEventListener("click", function (evt) {
             //recurse
             parseCL(txt.slice(pos));
           } else {
-            result += '\n\n<' + listType + '>' + processListItems(txt, !!trimTrailing) + '</' + listType + '>\n\n';
+            result += '\n\n&lt;' + listType + '>' + processListItems(txt, !!trimTrailing) + '&lt;/' + listType + '>\n\n';
           }
         })(list);
-        for (var i = 0; i < subLists.length; ++i) {
+        for (var i = 0; i &lt; subLists.length; ++i) {
 
         }
       } else {
-        result = '\n\n<' + listType + '>' + processListItems(list, !!trimTrailing) + '</' + listType + '>\n\n';
+        result = '\n\n&lt;' + listType + '>' + processListItems(list, !!trimTrailing) + '&lt;/' + listType + '>\n\n';
       }
 
       return result;
@@ -2696,24 +2724,24 @@ mode3.addEventListener("click", function (evt) {
 
     var grafs = text.split(/\n{2,}/g),
         grafsOut = [],
-        end = grafs.length; // Wrap <p> tags
+        end = grafs.length; // Wrap &lt;p> tags
 
-    for (var i = 0; i < end; i++) {
+    for (var i = 0; i &lt; end; i++) {
       var str = grafs[i];
       // if this is an HTML marker, copy it
       if (str.search(/~(K|G)(\d+)\1/g) >= 0) {
         grafsOut.push(str);
       } else {
         str = showdown.subParser('spanGamut')(str, options, globals);
-        str = str.replace(/^([ \t]*)/g, '<p>');
-        str += '</p>';
+        str = str.replace(/^([ \t]*)/g, '&lt;p>');
+        str += '&lt;/p>';
         grafsOut.push(str);
       }
     }
 
     /** Unhashify HTML blocks */
     end = grafsOut.length;
-    for (i = 0; i < end; i++) {
+    for (i = 0; i &lt; end; i++) {
       var blockText = '',
           grafsOutIt = grafsOut[i],
           codeFlag = false;
@@ -2737,7 +2765,7 @@ mode3.addEventListener("click", function (evt) {
 
         grafsOutIt = grafsOutIt.replace(/(\n\n)?~(K|G)\d+\2(\n\n)?/, blockText);
         // Check if grafsOutIt is a pre->code
-        if (/^<pre\b[^>]*>\s*<code\b[^>]*>/.test(grafsOutIt)) {
+        if (/^&lt;pre\b[^>]*>\s*&lt;code\b[^>]*>/.test(grafsOutIt)) {
           codeFlag = true;
         }
       }
@@ -2788,16 +2816,16 @@ mode3.addEventListener("click", function (evt) {
     text = showdown.subParser('images')(text, options, globals);
     text = showdown.subParser('anchors')(text, options, globals);
 
-    // Make links out of things like `<http://example.com/>`
-    // Must come after _DoAnchors(), because you can use < and >
-    // delimiters in inline links like [this](<url>).
+    // Make links out of things like `&lt;http://example.com/>`
+    // Must come after _DoAnchors(), because you can use &lt; and >
+    // delimiters in inline links like [this](&lt;url>).
     text = showdown.subParser('autoLinks')(text, options, globals);
     text = showdown.subParser('encodeAmpsAndAngles')(text, options, globals);
     text = showdown.subParser('italicsAndBold')(text, options, globals);
     text = showdown.subParser('strikethrough')(text, options, globals);
 
     // Do hard breaks:
-    text = text.replace(/  +\n/g, ' <br />\n');
+    text = text.replace(/  +\n/g, ' &lt;br />\n');
 
     text = globals.converter._dispatch('spanGamut.after', text, options, globals);
     return text;
@@ -2808,7 +2836,7 @@ mode3.addEventListener("click", function (evt) {
 
     if (options.strikethrough) {
       text = globals.converter._dispatch('strikethrough.before', text, options, globals);
-      text = text.replace(/(?:~T){2}([\s\S]+?)(?:~T){2}/g, '<del>$1</del>');
+      text = text.replace(/(?:~T){2}([\s\S]+?)(?:~T){2}/g, '&lt;del>$1&lt;/del>');
       text = globals.converter._dispatch('strikethrough.after', text, options, globals);
     }
 
@@ -2835,7 +2863,7 @@ mode3.addEventListener("click", function (evt) {
    * [ \t]*
    * \n?                  // maybe *one* newline
    * [ \t]*
-   * <?(\S+?)>?          // url = $2
+   * &lt;?(\S+?)>?          // url = $2
    * [ \t]*
    * \n?                // maybe one newline
    * [ \t]*
@@ -2854,7 +2882,7 @@ mode3.addEventListener("click", function (evt) {
   showdown.subParser('stripLinkDefinitions', function (text, options, globals) {
     'use strict';
 
-    var regex = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*<?(\S+?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n+|(?=~0))/gm;
+    var regex = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*&lt;?(\S+?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n+|(?=~0))/gm;
 
     // attacklab: sentinel workarounds for lack of \A and \Z, safari\khtml bug
     text += '~0';
@@ -2870,9 +2898,9 @@ mode3.addEventListener("click", function (evt) {
 
       } else {
         if (title) {
-          globals.gTitles[linkId] = title.replace(/"|'/g, '&quot;');
+          globals.gTitles[linkId] = title.replace(/"|'/g, '&amp;quot;');
         }
-        if (options.parseImgDimensions && width && height) {
+        if (options.parseImgDimensions &amp;&amp; width &amp;&amp; height) {
           globals.gDimensions[linkId] = {
             width:  width,
             height: height
@@ -2918,31 +2946,31 @@ mode3.addEventListener("click", function (evt) {
       }
       header = showdown.subParser('spanGamut')(header, options, globals);
 
-      return '<th' + id + style + '>' + header + '</th>\n';
+      return '&lt;th' + id + style + '>' + header + '&lt;/th>\n';
     }
 
     function parseCells(cell, style) {
       var subText = showdown.subParser('spanGamut')(cell, options, globals);
-      return '<td' + style + '>' + subText + '</td>\n';
+      return '&lt;td' + style + '>' + subText + '&lt;/td>\n';
     }
 
     function buildTable(headers, cells) {
-      var tb = '<table>\n<thead>\n<tr>\n',
+      var tb = '&lt;table>\n&lt;thead>\n&lt;tr>\n',
           tblLgn = headers.length;
 
-      for (var i = 0; i < tblLgn; ++i) {
+      for (var i = 0; i &lt; tblLgn; ++i) {
         tb += headers[i];
       }
-      tb += '</tr>\n</thead>\n<tbody>\n';
+      tb += '&lt;/tr>\n&lt;/thead>\n&lt;tbody>\n';
 
-      for (i = 0; i < cells.length; ++i) {
-        tb += '<tr>\n';
-        for (var ii = 0; ii < tblLgn; ++ii) {
+      for (i = 0; i &lt; cells.length; ++i) {
+        tb += '&lt;tr>\n';
+        for (var ii = 0; ii &lt; tblLgn; ++ii) {
           tb += cells[i][ii];
         }
-        tb += '</tr>\n';
+        tb += '&lt;/tr>\n';
       }
-      tb += '</tbody>\n</table>\n';
+      tb += '&lt;/tbody>\n&lt;/table>\n';
       return tb;
     }
 
@@ -2953,7 +2981,7 @@ mode3.addEventListener("click", function (evt) {
       var i, tableLines = rawTable.split('\n');
 
       // strip wrong first and last column if wrapped tables are used
-      for (i = 0; i < tableLines.length; ++i) {
+      for (i = 0; i &lt; tableLines.length; ++i) {
         if (/^[ \t]{0,3}\|/.test(tableLines[i])) {
           tableLines[i] = tableLines[i].replace(/^[ \t]{0,3}\|/, '');
         }
@@ -2972,7 +3000,7 @@ mode3.addEventListener("click", function (evt) {
       tableLines.shift();
       tableLines.shift();
 
-      for (i = 0; i < tableLines.length; ++i) {
+      for (i = 0; i &lt; tableLines.length; ++i) {
         if (tableLines[i].trim() === '') {
           continue;
         }
@@ -2985,24 +3013,24 @@ mode3.addEventListener("click", function (evt) {
         );
       }
 
-      if (rawHeaders.length < rawStyles.length) {
+      if (rawHeaders.length &lt; rawStyles.length) {
         return rawTable;
       }
 
-      for (i = 0; i < rawStyles.length; ++i) {
+      for (i = 0; i &lt; rawStyles.length; ++i) {
         styles.push(parseStyles(rawStyles[i]));
       }
 
-      for (i = 0; i < rawHeaders.length; ++i) {
+      for (i = 0; i &lt; rawHeaders.length; ++i) {
         if (showdown.helper.isUndefined(styles[i])) {
           styles[i] = '';
         }
         headers.push(parseHeaders(rawHeaders[i], styles[i]));
       }
 
-      for (i = 0; i < rawCells.length; ++i) {
+      for (i = 0; i &lt; rawCells.length; ++i) {
         var row = [];
-        for (var ii = 0; ii < headers.length; ++ii) {
+        for (var ii = 0; ii &lt; headers.length; ++ii) {
           if (showdown.helper.isUndefined(rawCells[i][ii])) {
 
           }
@@ -3035,11 +3063,11 @@ mode3.addEventListener("click", function (evt) {
   var root = this;
 
 // CommonJS/nodeJS Loader
-  if (typeof module !== 'undefined' && module.exports) {
+  if (typeof module !== 'undefined' &amp;&amp; module.exports) {
     module.exports = showdown;
 
 // AMD Loader
-  } else if (typeof define === 'function' && define.amd) {
+  } else if (typeof define === 'function' &amp;&amp; define.amd) {
     define(function () {
       'use strict';
       return showdown;
@@ -3112,3 +3140,26 @@ mode3.addEventListener("click", function (evt) {
 //   // Turn off dragging flag when user mouse is up
 //   isHandlerDragging = false;
 // });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="-_anonymous_-showdown.Converter.html">Converter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#destroyClickedElement">destroyClickedElement</a></li><li><a href="global.html#setCurrentMode">setCurrentMode</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sat Dec 21 2019 03:19:43 GMT+0300 (Москва, стандартное время)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -26,8 +26,9 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../519369-nerds-26/js/popup.js" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -50,6 +51,16 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/course-project/out/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -84,6 +95,12 @@
       <workItem from="1575985982442" duration="1080000" />
       <workItem from="1576063109749" duration="84000" />
       <workItem from="1576063553385" duration="189000" />
+      <workItem from="1576064012198" duration="487000" />
+      <workItem from="1576152415235" duration="8656000" />
+      <workItem from="1576175117759" duration="6278000" />
+      <workItem from="1576313206488" duration="16949000" />
+      <workItem from="1576880420823" duration="7970000" />
+      <workItem from="1576919581120" duration="650000" />
     </task>
     <servers />
   </component>
