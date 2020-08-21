@@ -52,13 +52,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.-_anonymous_-showdown.Converter.html">
+    <configuration name="-_anonymous_-showdown.Converter.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/course-project/out/-_anonymous_-showdown.Converter.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="convertSolution.js.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/course-project/out/convertSolution.js.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="global.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/course-project/out/global.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/course-project/out/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="main.js.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/course-project/out/main.js.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.-_anonymous_-showdown.Converter.html" />
         <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.main.js.html" />
+        <item itemvalue="JavaScript Debug.global.html" />
+        <item itemvalue="JavaScript Debug.convertSolution.js.html" />
       </list>
     </recent_temporary>
   </component>
@@ -100,7 +116,10 @@
       <workItem from="1576175117759" duration="6278000" />
       <workItem from="1576313206488" duration="16949000" />
       <workItem from="1576880420823" duration="7970000" />
-      <workItem from="1576919581120" duration="650000" />
+      <workItem from="1576919581120" duration="1883000" />
+      <workItem from="1577474968169" duration="2341000" />
+      <workItem from="1577477425294" duration="2504000" />
+      <workItem from="1582626643683" duration="2000" />
     </task>
     <servers />
   </component>
